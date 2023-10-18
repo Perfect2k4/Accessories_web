@@ -80,7 +80,7 @@ const User = () => {
               </Link>
             </h5>
           </TabPanel>
-          <TabPanel>Hello World</TabPanel>
+          <TabPanel>Hello Daddy</TabPanel>
         </Tabs>
       </form>
     </div>
