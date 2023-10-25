@@ -23,9 +23,9 @@ const Product = () => {
             />
           </div>
           <select className=" mt-[39px] border-solid border-[1px] borer-grays w-[261px] h-[53px]">
-            <option value="australia">Top choice</option>
-            <option value="canada">Price rising</option>
-            <option value="usa">Price falling</option>
+            <option>Top choice</option>
+            <option>Price rising</option>
+            <option>Price falling</option>
           </select>
         </div>
         <Tabs

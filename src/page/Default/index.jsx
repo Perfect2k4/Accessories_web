@@ -7,9 +7,9 @@ import { banners, reviews } from "data/ProductData";
 
 const Default = () => {
   return (
-    <div className="w-[1330px] h-[1800px] mx-[96px] py-[60px] ">
+    <div className="w-[1330px] h-[1800px] mx-[96px] py-[60px] z-1 ">
       <Swiper
-        className="max-w-[1330px] max-h-[700px] mb-[35px]  bg-gray-300 rounded-lg "
+        className="max-w-[1330px] max-h-[700px] mb-[35px] z-[-1]  bg-gray-300 rounded-lg "
         modules={[Navigation, Pagination]}
         spaceBetween={50}
         slidesPerView={1}

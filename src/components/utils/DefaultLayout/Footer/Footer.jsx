@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "configs/fontIcon";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -17,7 +18,11 @@ const Footer = () => {
         </div>
         <div className="mt-[57px]">
           © 2021 Shelly. <span className="text-gray-600">Terms of use</span> and
-          <span className="text-gray-600 cursor-pointer"> privacy policy.</span>
+          <Link to="/privacy">
+            <span className="text-gray-600 cursor-pointer">
+              privacy policy.
+            </span>
+          </Link>
         </div>
       </div>
       <div>

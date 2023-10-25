@@ -4,3 +4,6 @@ export { default as Product } from "./Product";
 export { default as Cart } from "./Cart";
 export { default as User } from "./User";
 export { default as ProductDetails } from "./ProductDetails";
+export { default as ResetPassword } from "./ResetPassword";
+export { default as Account } from "./Account";
+export { default as Privacy } from "./Privacy";

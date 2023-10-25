@@ -45,8 +45,7 @@ body {
 
 .heading-03 {
   font-weight: var(--font-weight-400);
-  font-size: var(--size-26);
-  line-height: var(--line-height-35);
+  font-size: var(--size-20);
 }
 
 .heading-04 {

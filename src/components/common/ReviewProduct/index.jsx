@@ -5,7 +5,7 @@ const ReviewProduct = (props) => {
   const { imgUrl, title, price } = props;
   return (
     <div>
-      <div className="product-box relative w-full overflow-hidden">
+      <div className="product-box relative w-full overflow-hidden z-[-1]">
         <Link to="/product-details">
           <img
             src={imgUrl}

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Banner = (props) => {
   const { imgSrc, title, price } = props;
   return (
-    <div className="flex justify-between flex-row">
+    <div className="flex justify-between flex-row ">
       <div className="py-[100px] px-[80px]">
         <h3 className="text-[35px] font-medium w-[500px] mb-[20px]">{title}</h3>
         <h4 className="heading-04 mb-[40px] text-accent">{price}</h4>

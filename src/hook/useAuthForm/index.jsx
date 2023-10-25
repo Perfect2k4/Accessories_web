@@ -41,7 +41,7 @@ export const useAuthForm = () => {
       );
     if (email !== "perfect@123.com" || password !== "Perfect123")
       return setErrorMsg("Invalid email or password");
-    history("/account");
+    history("/accounts");
   };
 
   return {

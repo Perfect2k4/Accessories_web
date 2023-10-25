@@ -15,6 +15,7 @@ module.exports = {
         light_gray: "#707070",
         grays: "#D8D8D8",
         layer: "rgba(245, 239, 239, 0.9)",
+        gray_light: "#efefef",
       },
     },
   },
