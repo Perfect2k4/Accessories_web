@@ -9,6 +9,7 @@ import {
   Account,
   Privacy,
 } from "page";
+import { Error } from "components/utils";
 
 // Public Routes
 const publicRoutes = [
@@ -21,6 +22,7 @@ const publicRoutes = [
   { path: "/reset-password", component: ResetPassword, layout: true },
   { path: "/accounts", component: Account, layout: true },
   { path: "/privacy", component: Privacy, layout: true },
+  { path: "/error", component: Error },
 ];
 
 const privateRoutes = [];

@@ -1,29 +1,15 @@
 import React from "react";
 import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
-import { useAuthForm } from "hook/useAuthForm";
+import { useTabs } from "hook/useTabs";
 import { Link } from "react-router-dom";
 
 const User = () => {
-  const {
-    tabIndex,
-    setTabIndex,
-    handleChange,
-    username,
-    setUsername,
-    email,
-    setEmail,
-    password,
-    setPassword,
-    errorMsg,
-    successMsg,
-    tabChange,
-    formSubmitter,
-    activeTabs,
-  } = useAuthForm(0);
+  const { tabIndex, setTabIndex, handleChange, tabChange, activeTabs } =
+    useTabs(0);
 
   return (
     <div className="w-[1330px] h-[1000px] mx-[96px] py-[60px]">
-      <form onSubmit={formSubmitter}>
+      <form>
         <h1 className="heading-01 text-center mt-[68px]">My account</h1>
         <Tabs
           data-selected-index={tabIndex}
@@ -52,26 +38,17 @@ const User = () => {
             </div>
           </TabList>
           <TabPanel className="ml-[400px]" value={1}>
-            {errorMsg.length > 0 && (
-              <div className="user-errorMsg">{errorMsg}</div>
-            )}
-            {successMsg.length > 0 && (
-              <div className="user-successMsg">{successMsg}</div>
-            )}
-
             <input
               className="fill"
               type="email"
+              name="email"
               placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               className="fill"
               type="password"
+              name="Password"
               placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
             <div className="flex flex-row">
               <input
@@ -96,9 +73,8 @@ const User = () => {
             <input
               className="fill"
               type="text"
+              name="Username"
               placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
             />
             <input className="fill" type="text" placeholder="Email" />
             <input className="fill" type="password" placeholder="Password" />
@@ -106,8 +82,6 @@ const User = () => {
               className="fill"
               type="password"
               placeholder="Confirm Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
             <div className="flex flex-row">
               <input

@@ -9,7 +9,7 @@ const Default = () => {
   return (
     <div className="w-[1330px] h-[1800px] mx-[96px] py-[60px] z-[0]">
       <Swiper
-        className="max-w-[1330px] max-h-[700px] mb-[35px]  bg-gray-300 rounded-lg "
+        className="max-w-full max-h-[38.8%] mb-[35px]  bg-gray-300 rounded-lg "
         modules={[Navigation, Pagination]}
         spaceBetween={50}
         slidesPerView={1}

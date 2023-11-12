@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { publicRoutes } from "routes";
-import { DefaultLayout } from "components/utils";
+import { DefaultLayout, Error } from "components/utils";
 
 const AppRouting = () => {
   return (
@@ -21,6 +21,8 @@ const AppRouting = () => {
           />
         );
       })}
+      <Route path="/error" element={<Error />} />
+      <Route path="*" element={<Navigate to="/error" />} />
     </Routes>
   );
 };
