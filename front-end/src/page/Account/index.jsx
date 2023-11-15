@@ -1,13 +1,16 @@
 import React from "react";
 import { useTabs } from "hook/useTabs";
 import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
+import { useSelector } from "react-redux";
 
 const Account = () => {
   const { tabIndex, setTabIndex, activeTabs, handleChange, tabChange } =
     useTabs(0);
+  const user = useSelector((state) => state.user);
+  console.log("user", user);
 
   return (
-    <div className="w-[1330px] h-[1800px] mx-[96px] py-[96px]">
+    <div className="w-[1330px] h-[600px] mx-[96px] py-[96px]">
       <h1 className="heading-01 text-center">My Account</h1>
       <Tabs
         data-selected-index={tabIndex}
@@ -54,26 +57,34 @@ const Account = () => {
         </TabList>
         <TabPanel value={1}>
           <div className="mt-[39px]">
-            <h3 className="heading-05 ">
-              Hello Vitatheme (not Vitatheme?{" "}
-              <span className="text-accent cursor-pointer">Log out</span>)
-            </h3>
-            <h3 className="heading-05">
-              From your account dashboard you can view your{" "}
-              <span className="text-accent">recent orders</span>, manage your{" "}
+            <div className="flex flex-row">
+              <h5 className="heading-05 flex flex-row">
+                Hello
+                <div className="text-red-600 pl-[5px]">{user.name}</div>
+                (not
+                <div className="text-red-600 pl-[5px]">{user.name}</div>?
+              </h5>
+              <span className="text-accent cursor-pointer pl-[5px]">
+                Log out
+              </span>
+              )
+            </div>
+            <h5 className="heading-05">
+              From your account dashboard you can view your
+              <span className="text-accent">recent orders</span>, manage your
               <span className="text-accent">
                 shipping and billing addresses
               </span>
-              , and edit your{" "}
+              , and edit your
               <span className="text-accent">password and account details</span>.
-            </h3>
+            </h5>
           </div>
         </TabPanel>
         <TabPanel value={2}>
           <div className="flex justify-between mt-[39px] w-[1248px] h-[68px] border-t-[1px] border-solid border-black bg-gray_light">
-            <h4 className="heading-03 px-[19px] py-[20px] ">
+            <h3 className="heading-03 px-[19px] py-[20px] ">
               No order has been made yet.
-            </h4>
+            </h3>
             <span className="cursor-pointer font-bold text-accent px-[23px] py-[20px]">
               BROWSE PRODUCT
             </span>
@@ -81,9 +92,9 @@ const Account = () => {
         </TabPanel>
         <TabPanel value={3}>
           <div className="flex justify-between mt-[39px] w-[1248px] h-[68px] border-t-[1px] border-solid border-black bg-gray_light">
-            <h4 className="heading-03 px-[19px] py-[20px]">
+            <h3 className="heading-03 px-[19px] py-[20px]">
               No downloads available yet.
-            </h4>
+            </h3>
             <span className="cursor-pointer font-bold text-accent px-[23px] py-[20px]">
               BROWSE PRODUCT
             </span>
@@ -91,30 +102,34 @@ const Account = () => {
         </TabPanel>
         <TabPanel value={4}>
           <div className="mt-[36px]">
-            <h2 className="heading-05">
+            <h5 className="heading-05">
               The following addresses will be used on the checkout page by
               default.
-            </h2>
+            </h5>
             <div className="flex justify-between w-[1000px]">
               <div className="mt-[45px]">
                 <h3 className="heading-03">Billing address</h3>
-                <p className="text-[20px] font-bold text-accent">ADD</p>
-                <h6 className="heading-03">
+                <p className="text-[20px] font-bold text-accent cursor-pointer">
+                  ADD
+                </p>
+                <h3 className="heading-03">
                   You have not set up this type of address yet.
-                </h6>
+                </h3>
               </div>
               <div className="mt-[45px]">
                 <h3 className="heading-03">Shipping address</h3>
-                <p className="text-[20px] font-bold text-accent">ADD</p>
-                <h6 className="heading-03">
+                <p className="text-[20px] font-bold text-accent cursor-pointer">
+                  ADD
+                </p>
+                <h3 className="heading-03">
                   You have not set up this type of address yet.
-                </h6>
+                </h3>
               </div>
             </div>
           </div>
         </TabPanel>
         <TabPanel value={5}>
-          <div className="px-[420px]">
+          <div className="px-[420px] h-[1000px]">
             <h1 className="mt-[39px] flex justify-center heading-01">
               Account details
             </h1>

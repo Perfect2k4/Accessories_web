@@ -8,6 +8,7 @@ import {
   ResetPassword,
   Account,
   Privacy,
+  Contact,
 } from "page";
 import { Error } from "components/utils";
 
@@ -22,6 +23,7 @@ const publicRoutes = [
   { path: "/reset-password", component: ResetPassword, layout: true },
   { path: "/accounts", component: Account, layout: true },
   { path: "/privacy", component: Privacy, layout: true },
+  { path: "/contact", component: Contact, layout: true },
   { path: "/error", component: Error },
 ];
 
