@@ -117,7 +117,7 @@ const getDetailsUser = async (req, res) => {
     if (!userId) {
       return res.status(200).json({
         status: "ERR",
-        message: "The userId is require",
+        message: "The userId is required",
       });
     }
     const response = await UserService.getDetailsUser(userId);
@@ -130,7 +130,6 @@ const getDetailsUser = async (req, res) => {
 };
 
 const refreshToken = async (req, res) => {
-  console.log("req.cookies.refresh_token", req.cookies.refresh_token);
   try {
     const token = req.cookies.refresh_token;
     if (!token) {

@@ -16,7 +16,7 @@ export const useAuthForm = () => {
 
   const mutation = useMutationHook((data) => UserService.signUpUser(data));
 
-  const { data, isLoanding, isSuccess, isError } = mutation;
+  const { data, isLoading, isSuccess, isError } = mutation;
 
   const handleOnchangeEmail = (e) => {
     setEmail(e.target.value);
@@ -42,7 +42,7 @@ export const useAuthForm = () => {
   useEffect(() => {
     if (isSuccess) {
       message.success();
-      history("/accounts");
+      history("/user");
     } else if (isError) {
       message.error();
     }
@@ -69,6 +69,6 @@ export const useAuthForm = () => {
     handleSignUp,
     handleOnchangeUserName,
     handleGetDetailsUser,
-    isLoanding,
+    isLoading,
   };
 };

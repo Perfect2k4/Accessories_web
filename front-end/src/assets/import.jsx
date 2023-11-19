@@ -14,7 +14,7 @@ import about01 from "./img-about-05.jpg";
 import about02 from "./img-about_04.jpg";
 import startBlack from "./img-star_black.jpg";
 import startWhite from "./img-star_white.jpg";
-import product01 from "./img-proudctDetails-01.jpg";
+import product01 from "./img-productDetails-01.jpg";
 import product02 from "./img-productDetails-02.jpg";
 
 export {

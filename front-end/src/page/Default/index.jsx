@@ -3,9 +3,23 @@ import { Banner, ReviewProduct } from "components/common/index";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
-import { banners, reviews } from "data/ProductData";
+import { banners } from "data/ProductData";
+import * as ProductService from "../../services/ProductService";
+import { useQuery } from "@tanstack/react-query";
 
 const Default = () => {
+  const fetchProductAll = async () => {
+    const res = await ProductService.getAllProduct();
+    console.log("res", res);
+    return res;
+  };
+
+  const { data: products } = useQuery(["products"], fetchProductAll, {
+    retry: 3,
+    retryDelay: 1000,
+  });
+  console.log("products", products);
+
   return (
     <div className="w-[1330px] h-[1800px] mx-[96px] py-[60px] z-[0]">
       <Swiper
@@ -33,14 +47,13 @@ const Default = () => {
         <h1 className="heading-01">Shop The Latest</h1>
         <h4 className="heading-04 cursor-pointer text-accent">View All</h4>
       </div>
-
       <div className="grid grid-cols-4 items-center gap-[37px] mt-[40px]">
-        {reviews.map((review, index) => (
+        {products?.data?.map((product) => (
           <ReviewProduct
-            key={index}
-            title={review.title}
-            price={review.price}
-            imgUrl={review.imgUrl}
+            key={product._id}
+            image={product.image}
+            name={product.name}
+            price={product.price}
           />
         ))}
       </div>

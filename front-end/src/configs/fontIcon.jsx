@@ -9,7 +9,7 @@ import {
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faUser, faUserCircle } from "@fortawesome/free-regular-svg-icons";
 
 import {
   faFacebookF,
@@ -29,5 +29,6 @@ library.add(
   faTwitter,
   faX,
   faEye,
-  faEyeSlash
+  faEyeSlash,
+  faUserCircle
 );

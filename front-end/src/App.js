@@ -1,18 +1,28 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRouting from "./routes/AppRouting";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { isJsonString } from "utils";
 import { jwtDecode } from "jwt-decode";
 import * as UserService from "services/UserService";
 import { useDispatch } from "react-redux";
 import { updateUser } from "redux/slides/userSlide";
+import Loading from "components/common/Loading";
 
 const App = () => {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGetDetailsUser = async (id, token) => {
+    let storageRefreshToken = localStorage.getItem("refresh_token");
+    const refreshToken = JSON.parse(storageRefreshToken);
     const res = await UserService.getDetailsUser(id, token);
-    dispatch(updateUser({ ...res?.data, access_token: token }));
+    dispatch(
+      updateUser({
+        ...res?.data,
+        access_token: token,
+        refreshToken: refreshToken,
+      })
+    );
   };
 
   const handleDecoded = () => {
@@ -26,10 +36,12 @@ const App = () => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     const { storageData, decoded } = handleDecoded();
     if (decoded?.id) {
       handleGetDetailsUser(decoded?.id, storageData);
     }
+    setIsLoading(false);
   }, []);
 
   UserService.axiosJWT.interceptors.request.use(
@@ -48,9 +60,11 @@ const App = () => {
   );
 
   return (
-    <Router>
-      <AppRouting />
-    </Router>
+    <Loading isLoading={isLoading}>
+      <Router>
+        <AppRouting />
+      </Router>
+    </Loading>
   );
 };
 

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-between w-[1330px] h-[159px] mb-[90px] mx-[96px]  border-t-[1px] border-solid border-gray-400 py-[40px] ">
+    <footer className="flex justify-between w-[1330px] h-[159px] mx-[96px]  border-t-[1px] border-solid border-gray-400 py-[40px] ">
       <div>
         <div className="flex flex-row">
           <Link to="/contact">

@@ -140,3 +140,8 @@
 .account-tab.active-tab {
   color: black;
 }
+
+/* upload */
+.ant-upload-list {
+  display: none;
+}

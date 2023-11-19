@@ -2,8 +2,11 @@ import React, { Fragment } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { publicRoutes } from "routes";
 import { DefaultLayout, Error } from "components/utils";
+import { useSelector } from "react-redux";
 
 const AppRouting = () => {
+  const user = useSelector((state) => state.user);
+
   return (
     <Routes>
       {publicRoutes.map((route, index) => {

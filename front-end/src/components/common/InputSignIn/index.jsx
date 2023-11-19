@@ -1,32 +1,46 @@
 import React, { useEffect } from "react";
 import { useAuthForm } from "hook/useAuthForm";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useMutationHook } from "hook/useMutation";
 import { useNavigate } from "react-router-dom";
 import * as UserService from "services/UserService";
 import { jwtDecode } from "jwt-decode";
+import { useDispatch } from "react-redux";
+import { updateUser } from "redux/slides/userSlide";
+
 // import Loading from "../Loading";
 
 const InputSignIn = () => {
   const history = useNavigate();
-  const {
-    email,
-    password,
-    handleOnchangeEmail,
-    handleOnchangePassword,
-    handleGetDetailsUser,
-  } = useAuthForm();
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const { email, password, handleOnchangeEmail, handleOnchangePassword } =
+    useAuthForm();
 
   const mutation = useMutationHook((data) => UserService.loginUser(data));
-  const { data, isLoading, isSuccess } = mutation;
+  const { data, isSuccess } = mutation;
+
+  const handleGetDetailsUser = async (id, token) => {
+    const storage = localStorage.getItem("refresh_token");
+    const refreshToken = JSON.parse(storage);
+    const res = await UserService.getDetailsUser(id, token);
+    dispatch(updateUser({ ...res?.data, access_token: token, refreshToken }));
+  };
 
   useEffect(() => {
     if (isSuccess) {
-      history("/accounts");
+      if (location?.state) {
+        history(location?.state);
+      } else {
+        history("/");
+      }
       localStorage.setItem("access_token", JSON.stringify(data?.access_token));
+      localStorage.setItem(
+        "refresh_token",
+        JSON.stringify(data?.refresh_token)
+      );
       if (data?.access_token) {
         const decoded = jwtDecode(data?.access_token);
-        console.log("decoded", decoded);
         if (decoded?.id) {
           handleGetDetailsUser(decoded?.id, data?.access_token);
         }

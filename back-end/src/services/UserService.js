@@ -151,11 +151,10 @@ const getDetailsUser = (id) => {
       });
       if (user === null) {
         resolve({
-          status: "OK",
+          status: "ERR",
           message: "The user is not defined",
         });
       }
-
       resolve({
         status: "OK",
         message: "SUCCESS",

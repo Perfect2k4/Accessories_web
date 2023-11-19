@@ -11,6 +11,7 @@ import {
   Contact,
 } from "page";
 import { Error } from "components/utils";
+import Admin from "page/Admin";
 
 // Public Routes
 const publicRoutes = [
@@ -24,6 +25,7 @@ const publicRoutes = [
   { path: "/accounts", component: Account, layout: true },
   { path: "/privacy", component: Privacy, layout: true },
   { path: "/contact", component: Contact, layout: true },
+  { path: "/system/admin", component: Admin, layout: false, isPrivate: true },
   { path: "/error", component: Error },
 ];
 

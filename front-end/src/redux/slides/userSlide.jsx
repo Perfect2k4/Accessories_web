@@ -5,6 +5,8 @@ const initialState = {
   email: "",
   phone: "",
   address: "",
+  fullName: "",
+  loginSuccess: "",
   avatar: "",
   access_token: "",
   id: "",
@@ -24,6 +26,8 @@ export const userSlide = createSlice({
         access_token = "",
         address = "",
         phone = "",
+        fullName = "",
+        loginSuccess = "",
         avatar = "",
         _id = "",
         isAdmin,
@@ -34,6 +38,8 @@ export const userSlide = createSlice({
       state.email = email ? email : state.email;
       state.address = address ? address : state.address;
       state.phone = phone ? phone : state.phone;
+      state.fullName = fullName ? fullName : state.fullName;
+      state.loginSuccess = loginSuccess ? loginSuccess : state.loginSuccess;
       state.avatar = avatar ? avatar : state.avatar;
       state.id = _id ? _id : state.id;
       state.access_token = access_token ? access_token : state.access_token;
@@ -46,6 +52,8 @@ export const userSlide = createSlice({
       state.email = "";
       state.address = "";
       state.phone = "";
+      state.fullName = "";
+      state.loginSuccess = "";
       state.avatar = "";
       state.id = "";
       state.access_token = "";

@@ -1,6 +1,5 @@
 import { useAuthForm } from "hook/useAuthForm";
 import React from "react";
-// import Loading from "../Loading";
 
 const InputSignUp = () => {
   const {
@@ -14,7 +13,6 @@ const InputSignUp = () => {
     handleOnchangeConfirmPassword,
     handleSignUp,
     handleOnchangeUserName,
-    // isLoadingSignUp,
   } = useAuthForm();
 
   return (
