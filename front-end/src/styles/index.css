@@ -145,3 +145,8 @@
 .ant-upload-list {
   display: none;
 }
+
+/* admin */
+.ant-btn-primary {
+  background: rgb(33, 157, 210);
+}
