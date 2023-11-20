@@ -15,15 +15,15 @@ const Navbar = ({
   const history = useNavigate();
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [userAvatar, setAvatar] = useState("");
-  const [userName, setuserName] = useState("");
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     setAvatar(user?.avatar);
-    setuserName(user?.name);
+    setUserName(user?.name);
   }, [user?.avatar, user?.name]);
 
   const content = (
-    <div>
+    <>
       <Link to="/accounts">
         <p className="hover:bg-grays hover:text-blue-400 duration-500 cursor-pointer">
           User Information And Orders
@@ -37,7 +37,7 @@ const Navbar = ({
           System Management
         </p>
       )}
-    </div>
+    </>
   );
 
   return (
