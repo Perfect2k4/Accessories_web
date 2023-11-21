@@ -150,3 +150,8 @@
 .ant-btn-primary {
   background: rgb(33, 157, 210);
 }
+
+/* avatar  */
+.ant-upload-wrapper .ant-upload {
+  display: flex;
+}

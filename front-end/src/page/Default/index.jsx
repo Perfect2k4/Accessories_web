@@ -1,10 +1,10 @@
 import React from "react";
 import { Banner, ReviewProduct } from "components/common/index";
-import { Navigation, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import { banners } from "data/ProductData";
-import * as ProductService from "../../services/ProductService";
+import * as ProductService from "services/ProductService";
 import { useQuery } from "@tanstack/react-query";
 
 const Default = () => {
@@ -24,10 +24,9 @@ const Default = () => {
     <div className="w-[1330px] h-[1800px] mx-[96px] py-[60px] z-[0]">
       <Swiper
         className="max-w-full max-h-[38.8%] mb-[35px]  bg-gray-300 rounded-lg "
-        modules={[Navigation, Pagination]}
+        modules={[Pagination]}
         spaceBetween={50}
         slidesPerView={1}
-        navigation
         pagination={{ clickable: true }}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}

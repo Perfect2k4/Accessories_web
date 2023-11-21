@@ -12,11 +12,10 @@ const ProductDetails = () => {
     return res;
   };
 
-  const { isLoading, data: products } = useQuery(
-    ["products"],
-    fetchProductAll,
-    { retry: 3, retryDelay: 1000 }
-  );
+  const { data: products } = useQuery(["products"], fetchProductAll, {
+    retry: 3,
+    retryDelay: 1000,
+  });
   console.log("products", products);
   return (
     <Row className="w-[1330px] h-[1600px] mx-[96px] py-[128px]">

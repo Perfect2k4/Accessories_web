@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Image } from "antd";
 import { StarFilled } from "@ant-design/icons";
-import { product01 } from "assets/import";
 
 const ProductDetailsComponent = (props) => {
   const { image, name, price, description, rating } = props;

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Divider, Radio, Table } from "antd";
-import { columns, data } from "data/UserAdminData";
+import React from "react";
+import { Table } from "antd";
+import { columns } from "data/UserAdminData";
 
 const TableComponent = (props) => {
-  const { selectionType = "checkbox" } = props;
+  const { selectionType = "checkbox", products = [] } = props;
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
       console.log(
@@ -18,6 +18,14 @@ const TableComponent = (props) => {
       name: record.name,
     }),
   };
+
+  const data =
+    products?.length &&
+    products?.map((product) => {
+      return { ...product, key: product._id };
+    });
+
+  console.log("data", data);
 
   return (
     <div>
